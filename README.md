@@ -1,84 +1,75 @@
-AI Workflow Scenarios and Prompts
-This repository contains real-world GitHub Actions workflows designed for evaluation by an AI Workflow Adviser / Optimiser. Each workflow simulates different issues or patterns and is linked below along with relevant AI prompt examples.
+# 🧠 AI Workflow Adviser / Optimiser Scenarios
 
-Workflow Files
-workflow-scheduled-and-manual.yml
+This repository includes real-world GitHub Actions workflow examples created for **AI Awareness Week**. Each workflow simulates a distinct pattern or issue commonly found in CI/CD pipelines, and is linked with representative **AI prompts** for training or querying a Workflow Optimiser or Adviser.
 
-Scenarios:
-Scheduled Workflow (cron: daily)
-Manual Trigger
+---
 
-AI Prompts:
+## 📁 Workflow Files and AI Prompts
 
-Show workflows scheduled to run daily or weekly.
+### [`workflow-scheduled-and-manual.yml`](.github/workflows/workflow-scheduled-and-manual.yml)
 
-List workflows that are triggered manually.
+**Scenarios:**
+- Scheduled Workflow (cron: daily)
+- Manual Trigger
 
-workflow-push-fail-flaky.yml
-Scenarios:
+**AI Prompts:**
+- Show workflows scheduled to run daily or weekly.  
+- List workflows that are triggered manually.
 
-Push Trigger (to main)
+---
 
-Constantly Failing Job
+### [`workflow-push-fail-flaky.yml`](.github/workflows/workflow-push-fail-flaky.yml)
 
-Flaky Job
+**Scenarios:**
+- Push Trigger (to `main`)
+- Constantly Failing Job
+- Flaky Job
 
-AI Prompts:
+**AI Prompts:**
+- Show workflows triggered on push to main branch.  
+- Identify workflows that have failed in the last 10 runs.  
+- Flag flaky workflows with unstable pass/fail rates.
 
-Show workflows triggered on push to main branch.
+---
 
-Identify workflows that have failed in the last 10 runs.
+### [`workflow-timeouts-and-long-jobs.yml`](.github/workflows/workflow-timeouts-and-long-jobs.yml)
 
-Flag flaky workflows with unstable pass/fail rates.
+**Scenarios:**
+- Long-Running Job
+- Timeout Case
 
-workflow-timeouts-and-long-jobs.yml
-Scenarios:
+**AI Prompts:**
+- List jobs that consistently take more than 10 minutes.  
+- Identify workflows that timed out.
 
-Long-Running Job
+---
 
-Timeout Case
+### [`workflow-artifacts-errors-retry.yml`](.github/workflows/workflow-artifacts-errors-retry.yml)
 
-AI Prompts:
+**Scenarios:**
+- Large Artifact Size / Upload Failures  
+- Secrets or Permissions Errors  
+- Too Many Steps / Redundant Steps  
+- Repeated Retries or Reruns  
+- Failing at Specific Steps
 
-List jobs that consistently take more than 10 minutes.
+**AI Prompts:**
+- List workflows generating artifacts over 500MB or having upload failures.  
+- Show jobs failing due to secrets or permission issues.  
+- Show workflows with over 30 steps or repeated commands.  
+- Find workflows rerun more than 3 times in the past week.  
+- Find workflows that fail repeatedly at the same step.
 
-Identify workflows that timed out.
+---
 
-workflow-artifacts-errors-retry.yml
-Scenarios:
+### [`do-not-trigger.yml`](.github/workflows/do-not-trigger.yml)
 
-Large Artifact Size / Upload Failures
+**Scenarios:**
+- Never Triggered / Obsolete Workflows  
+- Inconsistent Duration (based on historical logs)
 
-Secrets or Permissions Errors
+**AI Prompts:**
+- List workflows that haven’t been triggered in the last 90 days.  
+- Show jobs with inconsistent execution times across runs.
 
-Too Many Steps / Redundant Steps
-
-Repeated Reruns
-
-Failing at Specific Steps
-
-AI Prompts:
-
-List workflows generating artifacts over 500MB or having upload failures.
-
-Show jobs failing due to secrets or permission issues.
-
-Show workflows with over 30 steps or repeated commands.
-
-Find workflows rerun more than 3 times in the past week.
-
-Find workflows that fail repeatedly at the same step.
-
-obsolete.yml (Optional)
-Scenarios:
-
-Never Triggered / Obsolete Workflows
-
-Inconsistent Duration (implied via logs/metrics)
-
-AI Prompts:
-
-List workflows that haven’t been triggered in the last 90 days.
-
-Show jobs with inconsistent execution times across runs.
-
+---
