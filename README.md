@@ -21,12 +21,12 @@ This repository includes real-world GitHub Actions workflow examples created for
 ### [`workflow-push-fail-flaky.yml`](.github/workflows/workflow-push-fail-flaky.yml)
 
 **Scenarios:**
-- Push Trigger (to `main`)
+- Push Trigger (to `master`)
 - Constantly Failing Job
 - Flaky Job
 
 **AI Prompts:**
-- Show workflows triggered on push to main branch.  
+- Show workflows triggered on push to master branch.  
 - Identify workflows that have failed in the last 10 runs.  
 - Flag flaky workflows with unstable pass/fail rates.
 
