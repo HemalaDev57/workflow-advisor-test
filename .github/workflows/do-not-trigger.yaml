@@ -1,0 +1,9 @@
+name: Old Workflow - do not trigger
+
+on:
+  workflow_dispatch:
+jobs:
+  noop:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "This is never triggered"
