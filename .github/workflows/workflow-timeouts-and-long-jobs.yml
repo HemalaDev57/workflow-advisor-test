@@ -1,0 +1,16 @@
+name: Long Running and Timeout Cases
+
+on:
+  workflow_dispatch:
+
+jobs:
+  long-running:
+    runs-on: ubuntu-latest
+    steps:
+      - run: sleep 900  # 15 minutes
+
+  timeout-job:
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    steps:
+      - run: sleep 120  # Exceeds timeout
