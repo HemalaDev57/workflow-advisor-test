@@ -3,6 +3,10 @@ name: Artifact Upload, Secrets Issues, and Rerun Patterns
 on:
   workflow_dispatch:
 
+permissions:
+  actions: read
+  contents: read
+  
 jobs:
   large-artifact:
     runs-on: ubuntu-latest
@@ -16,7 +20,7 @@ jobs:
   secrets-error:
     runs-on: ubuntu-latest
     steps:
-      - run: git clone https://github.com/private/repo.git
+      - run: git clone https://github.com/HemalaDev57/gha-repo-1.git
 
   redundant-steps:
     runs-on: ubuntu-latest
