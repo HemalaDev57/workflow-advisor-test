@@ -1,0 +1,12 @@
+name: Scheduled and Manual Triggers
+
+on:
+  schedule:
+    - cron: '0 */2 * * *'  # Runs every 2 hours
+  workflow_dispatch:
+
+jobs:
+  run-check:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "This runs daily or when manually triggered"
