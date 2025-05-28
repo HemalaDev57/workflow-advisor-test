@@ -1,0 +1,17 @@
+name: Push Triggered with Failing and Flaky Jobs
+
+on:
+  push:
+    branches: master
+
+jobs:
+  always-fail:
+    runs-on: ubuntu-latest
+    steps:
+      - run: exit 1  # Constant failure
+
+  flaky-job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          if [ $((RANDOM % 2)) -eq 0 ]; then exit 1; fi
