@@ -1,10 +1,10 @@
-# 🧠 AI Workflow Adviser / Optimiser Scenarios
+# AI Workflow Adviser / Optimiser Scenarios
 
 This repository includes real-world GitHub Actions workflow examples created for **AI Awareness Week**. Each workflow simulates a distinct pattern or issue commonly found in CI/CD pipelines, and is linked with representative **AI prompts** for training or querying a Workflow Optimiser or Adviser.
 
 ---
 
-## 📁 Workflow Files and AI Prompts
+## Workflow Files and AI Prompts
 
 ### [`workflow-scheduled-and-manual.yml`](.github/workflows/workflow-scheduled-and-manual.yml)
 
