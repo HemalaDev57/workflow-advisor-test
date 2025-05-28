@@ -1,0 +1,37 @@
+name: Artifact Upload, Secrets Issues, and Rerun Patterns
+
+on:
+  workflow_dispatch:
+
+jobs:
+  large-artifact:
+    runs-on: ubuntu-latest
+    steps:
+      - run: dd if=/dev/zero of=bigfile.zip bs=1M count=600
+      - uses: actions/upload-artifact@v3
+        with:
+          name: large
+          path: bigfile.zip
+
+  secrets-error:
+    runs-on: ubuntu-latest
+    steps:
+      - run: git clone https://github.com/private/repo.git
+
+  redundant-steps:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "step 1"
+      - run: echo "step 2"
+      - run: echo "step 1"  # Repeated
+      - run: echo "step 2"  # Repeated
+      - run: echo "step 3"
+      # Add up to 30+ steps to simulate too many steps
+
+  install-deps-fail:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Success step
+        run: sleep 5
+      - name: Install dependencies
+        run: exit 1  # Consistent failure at specific step
