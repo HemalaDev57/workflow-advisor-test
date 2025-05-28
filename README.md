@@ -9,11 +9,11 @@ This repository includes real-world GitHub Actions workflow examples created for
 ### [`workflow-scheduled-and-manual.yml`](.github/workflows/workflow-scheduled-and-manual.yml)
 
 **Scenarios:**
-- Scheduled Workflow (cron: daily)
+- Scheduled Workflow (cron: every two hours)
 - Manual Trigger
 
 **AI Prompts:**
-- Show workflows scheduled to run daily or weekly.  
+- Show workflows scheduled to run every two hours, daily or weekly.  
 - List workflows that are triggered manually.
 
 ---
