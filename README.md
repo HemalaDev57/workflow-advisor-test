@@ -73,3 +73,16 @@ This repository includes real-world GitHub Actions workflow examples created for
 - Show jobs with inconsistent execution times across runs.
 
 ---
+
+### [`needs-optimization.yml`](.github/workflows/needs-optimization.yml)
+
+**Scenarios:**
+- Redundant Serial Execution 
+- Skipped Job in Every Run
+
+**AI Prompts:**
+- Suggest jobs that could run in parallel instead of serially.  
+- Show jobs skipped in the last 10 runs.
+- Suggest redundant jobs or steps that don't add value.
+
+---
