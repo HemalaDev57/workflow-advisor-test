@@ -1,0 +1,29 @@
+name: Flaky with Jitter
+
+on: [push]
+
+jobs:
+  flaky-jitter:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Flaky step with jittered retry
+        run: |
+          max_retries=5
+          base_delay=3
+          for i in $(seq 1 $max_retries); do
+            echo "Attempt $i"
+            if bash -c "exit $(( RANDOM % 2 ))"; then
+              echo "Success on attempt $i"
+              break
+            else
+              jitter=$(( RANDOM % 5 + 1 ))
+              delay=$(( base_delay + jitter ))
+              echo "Failure on attempt $i, sleeping $delay seconds"
+              sleep $delay
+              if [ $i -eq $max_retries ]; then
+                echo "All attempts failed"
+                exit 1
+              fi
+            fi
+          done
