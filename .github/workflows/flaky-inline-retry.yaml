@@ -1,0 +1,27 @@
+name: Flaky Inline Retry
+
+on: [push]
+
+jobs:
+  flaky-retry:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run flaky inline command with retries
+        run: |
+          max_attempts=3
+          for attempt in $(seq 1 $max_attempts); do
+            echo "Attempt $attempt"
+            # Simulate flaky behavior: 50% chance of success/failure
+            if bash -c "exit $(( RANDOM % 2 ))"; then
+              echo "Success on attempt $attempt"
+              break
+            else
+              echo "Failure on attempt $attempt"
+              if [ $attempt -eq $max_attempts ]; then
+                echo "All attempts failed, exiting."
+                exit 1
+              fi
+              sleep 5
+            fi
+          done
