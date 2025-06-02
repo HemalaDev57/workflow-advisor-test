@@ -1,0 +1,44 @@
+name: Random Outcome Simulator
+
+on: [workflow_dispatch, push]
+
+jobs:
+  simulate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Pick a random status
+        id: choose
+        run: |
+          STATUSES=("success" "failure" "warning" "skipped" "cancelled" "timeout")
+          SELECTED=${STATUSES[$(( RANDOM % ${#STATUSES[@]} ))]}
+          echo "Selected status: $SELECTED"
+          echo "status=$SELECTED" >> $GITHUB_OUTPUT
+      - name: Simulate chosen status
+        run: |
+          case "${{ steps.choose.outputs.status }}" in
+            success)
+              echo "✅ Simulating SUCCESS."
+              ;;
+            failure)
+              echo "❌ Simulating FAILURE."
+              exit 1
+              ;;
+            warning)
+              echo "::warning file=example.py,line=10::⚠️ Simulating WARNING"
+              ;;
+            skipped)
+              echo "⏭️ Skipping remaining steps..."
+              exit 78  # Exit code 78 = GitHub "neutral"
+              ;;
+            cancelled)
+              echo "💤 Simulating CANCELLED (as neutral exit)"
+              exit 0
+              ;;
+            timeout)
+              echo "⏳ Simulating TIMEOUT"
+              sleep 65  # Long sleep simulates a long-running process
+              echo "❌ Timeout triggered manually"
+              exit 1
+              ;;
+          esac
