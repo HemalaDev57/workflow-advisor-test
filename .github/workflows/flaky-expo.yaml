@@ -1,0 +1,29 @@
+name: Flaky with Exponential Backoff
+
+on: [push]
+
+jobs:
+  flaky-backoff:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Retry with exponential backoff inline
+        run: |
+          max_retries=4
+          delay=2
+          for i in $(seq 1 $max_retries); do
+            echo "Try #$i"
+            # 50% chance to fail
+            if bash -c "exit $(( RANDOM % 2 ))"; then
+              echo "Success on try #$i"
+              break
+            else
+              echo "Fail on try #$i, sleeping $delay seconds"
+              sleep $delay
+              delay=$(( delay * 2 ))
+              if [ $i -eq $max_retries ]; then
+                echo "All retries exhausted"
+                exit 1
+              fi
+            fi
+          done
