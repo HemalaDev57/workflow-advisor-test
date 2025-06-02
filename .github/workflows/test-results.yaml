@@ -4,11 +4,7 @@ permissions:
   id-token: write
   contents: read
 
-on:
-  workflow_dispatch:
-  push:
-    branches:
-      - proj
+on: [push]
 jobs:
   run-go-action:
     runs-on: ubuntu-latest
