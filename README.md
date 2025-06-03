@@ -190,5 +190,17 @@ This repository includes real-world GitHub Actions workflow examples created for
 
 ---
 
+### [`test-results.yaml`](.github/workflows/test-results.yaml)
 
+**Scenarios:**
+- Missing or Mislocated Test Result Files
+- Repeated Failures Due to Incompatible Report Format or Path
+- Lack of Parallelization for Multiple Test Suites
+
+**AI Prompts:**
+- Show if the custom Go action version is up to date and compatible with current test report formats.
+- Identify flaky test failures or inconsistent test result publishing.
+- Show the last 10 runs where no test results were published by publish-test-results.
+
+---
 
