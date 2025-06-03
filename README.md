@@ -175,6 +175,20 @@ This repository includes real-world GitHub Actions workflow examples created for
 
 ---
 
+### [`random-status.yaml`](.github/workflows/random-status.yaml)
+
+**Scenarios:**
+- Non-Deterministic Job Results Obscuring Real Failures
+- Random Statuses Introducing Noise in CI Metrics
+- Simulated Failures Triggering False Alerts or Misleading Trends
+
+**AI Prompts:**
+- Show distribution of simulated statuses over the last 20 runs.
+- Detect if any status type (e.g. failure, timeout) is disproportionately represented.
+- Recommend separating deterministic tests from randomized simulations for cleaner reporting.
+- Identify runs where non-success outcomes were mistaken for actual workflow issues.
+
+---
 
 
 
