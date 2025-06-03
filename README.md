@@ -100,7 +100,7 @@ This repository includes real-world GitHub Actions workflow examples created for
 
 ---
 
-### [`concurrency.yaml`](.github/workflows/concurrency.yaml)
+### [`flake-retry.yaml`](.github/workflows/flake-retry.yaml)
 
 **Scenarios:**
 - Redundant Retry Logic for Non-Deterministic Failures
@@ -113,6 +113,67 @@ This repository includes real-world GitHub Actions workflow examples created for
 - Identify flaky steps that frequently fail and succeed inconsistently.
 
 ---
+
+
+### [`flaky-expo.yaml`](.github/workflows/flaky-expo.yaml)
+
+**Scenarios:**
+- Inefficient Retry with Fixed Backoff Regardless of Failure Type
+- Masked Flakiness Without Root Cause Resolution
+- Excessive Delay Causing Long CI Times
+
+**AI Prompts:**
+- Show how often all retries are exhausted in the flaky-backoff job.
+- Suggest smarter retry conditions instead of uniform exponential backoff.
+- Identify if the same step fails repeatedly even after retries, indicating deeper flakiness.
+
+---
+
+
+### [`flaky-inline-retry.yaml`](.github/workflows/flaky-inline-retry.yaml)
+
+**Scenarios:**
+- Lack of Visibility Into Which Attempt Succeeds
+- Manual Retry Logic Duplicated Across Jobs
+- Retry Masking Infrastructure or Dependency Issues
+
+**AI Prompts:**
+- Highlight steps where success consistently happens only on the last attempt.
+- Detect patterns of similar retry logic used across multiple workflows.
+- Recommend built-in GitHub Actions retry strategies or reusable actions for handling flakiness.
+- Identify if flakiness correlates with specific times, runners, or external dependencies.
+
+---
+
+### [`flaky-jitter.yaml`](.github/workflows/flaky-jitter.yaml)
+
+**Scenarios:**
+- Unpredictable Build Times Due to Random Jitter
+- Retry Logic Adds Variance Without Addressing Root Cause
+- Hidden Instability Behind Successful Final Attempt
+
+**AI Prompts:**
+- Show how jitter impacts average retry duration across runs.
+- Identify if adding jitter improves success rate compared to fixed or exponential delays.
+- Suggest standardizing retry strategies across workflows for consistency and traceability.
+- Detect steps where retries succeed frequently only after multiple jittered delays.
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
