@@ -1,0 +1,26 @@
+name: Publish test results
+
+permissions:
+  id-token: write
+  contents: read
+
+on: [push]
+jobs:
+  run-go-action:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout Repository - v1
+        uses: actions/checkout@v3
+        with:
+          repository: apache/commons-lang
+      - name: Run Tests with Maven - v1
+        run: |
+          mvn test -Dtest=StringUtilsTest
+          ls -lrt
+          
+      - name: Run My Custom Go Action for GO 
+        uses: cloudbees-io-gha/publish-test-results@v2
+        with:
+          test-type: JUNIT
+          results-path: target/surefire-reports/*

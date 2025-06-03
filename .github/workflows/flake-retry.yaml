@@ -1,0 +1,31 @@
+name: Flaky Separate Retry
+
+on: [push]
+
+jobs:
+  first-try:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - name: Run flaky inline command
+        run: |
+          if bash -c "exit $(( RANDOM % 2 ))"; then
+            echo "First try success"
+          else
+            echo "First try failed"
+            exit 1
+          fi
+
+  retry-if-fail:
+    needs: first-try
+    if: needs.first-try.result == 'failure'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Retry flaky inline command
+        run: |
+          if bash -c "exit $(( RANDOM % 2 ))"; then
+            echo "Retry success"
+          else
+            echo "Retry failed"
+            exit 1
+          fi
