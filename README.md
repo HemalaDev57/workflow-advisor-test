@@ -86,3 +86,24 @@ This repository includes real-world GitHub Actions workflow examples created for
 - Suggest redundant jobs or steps that don't add value.
 
 ---
+
+### [concurrency.yaml`](.github/workflows/concurrency.yaml)
+
+**Scenarios:**
+- Frequent Job Cancellations Due to Concurrency
+- Overly Restrictive Concurrency Settings
+- Critical Steps Canceled Mid-Execution
+
+**AI Prompts:**
+- Show how many jobs were canceled in the last 10 runs due to concurrency.
+- Identify critical steps most often skipped due to canceled jobs.
+
+
+---
+
+
+
+
+
+
+
