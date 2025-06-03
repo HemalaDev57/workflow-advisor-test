@@ -87,7 +87,7 @@ This repository includes real-world GitHub Actions workflow examples created for
 
 ---
 
-### [concurrency.yaml`](.github/workflows/concurrency.yaml)
+### [`concurrency.yaml`](.github/workflows/concurrency.yaml)
 
 **Scenarios:**
 - Frequent Job Cancellations Due to Concurrency
@@ -98,8 +98,22 @@ This repository includes real-world GitHub Actions workflow examples created for
 - Show how many jobs were canceled in the last 10 runs due to concurrency.
 - Identify critical steps most often skipped due to canceled jobs.
 
+---
+
+### [`concurrency.yaml`](.github/workflows/concurrency.yaml)
+
+**Scenarios:**
+- Redundant Retry Logic for Non-Deterministic Failures
+- Retry Job Succeeds Randomly Without Fixing Root Cause
+- Wasted Resources on Retrying Flaky Steps
+
+**AI Prompts:**
+- Show how often retry-if-fail succeeded after first-try failed.
+- Suggest whether a built-in retry strategy would be more efficient than a separate job.
+- Identify flaky steps that frequently fail and succeed inconsistently.
 
 ---
+
 
 
 
