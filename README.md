@@ -160,24 +160,20 @@ This repository includes real-world GitHub Actions workflow examples created for
 
 ---
 
+### [`matrix.yaml`](.github/workflows/matrix.yaml)
 
+**Scenarios:**
+- Redundant Matrix Variants with No Behavioral Differences
+- Inefficient Matrix Combinations Increasing Runtime
+- Version-Specific Failures Hidden in Matrix Output
 
+**AI Prompts:**
+- Identify matrix versions where output or behavior is identical—suggest collapsing variants.
+- Show which matrix versions fail most often across the last 10 runs.
+- Recommend pruning or parallelizing matrix combinations to improve efficiency.
+- Detect if any matrix configurations consistently take longer than others.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+---
 
 
 
