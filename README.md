@@ -204,3 +204,20 @@ This repository includes real-world GitHub Actions workflow examples created for
 
 ---
 
+### [`unoptimized.yaml`](.github/workflows/unoptimized.yaml)
+
+**Scenarios:**
+- Sequential Steps Increasing Total Workflow Duration
+- Use of Outdated Action Versions
+- Inefficient or Missing Caching Mechanisms
+- Possible Missing Output Directory Leading to Upload Failures
+
+**AI Prompts:**
+- Suggest steps that could run in parallel to reduce total runtime.
+- Recommend upgrading actions (e.g., actions/checkout@v3, upload-artifact@v3).
+- Identify opportunities to add caching (e.g., dependencies, build artifacts) to speed up runs.
+- Verify if ./output/ exists before upload and suggest safeguards against empty uploads.
+- Detect unnecessary or placeholder steps that could be optimized or removed.
+
+---
+
